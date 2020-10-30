@@ -14,5 +14,27 @@ namespace HackathonIST
         {
             InitializeComponent();
         }
+
+        protected internal void DisplayStack()
+        {
+            NavigationPage navPage = (NavigationPage)App.Current.MainPage;
+        }
+
+        private async void LoginButton_OnClicked(object sender, EventArgs e)
+        {
+            var login = LoginText.Text;
+
+            if (login == "a")
+            {
+                BuilderStart worker1 = new BuilderStart();
+                await Navigation.PushAsync(worker1);
+            }
+            else if (login == "b")
+            {
+                BuilderStart worker1 = new BuilderStart();
+                await Navigation.PushAsync(worker1);
+            }
+
+        }
     }
 }

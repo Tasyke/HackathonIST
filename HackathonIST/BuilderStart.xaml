@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HackathonIST.BuilderStart"
+             Title="РД">
+
+    <StackLayout>
+        <StackLayout.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="20, 30, 20, 0" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+        </StackLayout.Resources>
+        <Label Text="Рабочий день" 
+               FontSize="23"
+               Margin ="0,0,0,0"
+               HorizontalOptions="Center" />
+        <Button Text="Начать рабочий день"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+        <Label Text="Вы на работе уже:" />
+        <TimePicker />
+        <Button Text="Завершить рабочий день" />
+        
+    </StackLayout>
+</ContentPage>

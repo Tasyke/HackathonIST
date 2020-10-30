@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HackathonIST.ProjectTypes"
+             Title="Проекты">
+    <StackLayout>
+        <StackLayout.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="20, 0, 20, 0" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+        </StackLayout.Resources>
+
+        <Label Text="Проекты" 
+               HorizontalOptions="Center"
+               FontSize="25"
+               Margin="0,20,0,0"
+               />
+        <TableView>
+            <TableRoot>
+                <TableSection>
+                    <TextCell Text="Многоэтажное здание"  />
+                    <TextCell Text="Школа"  />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Text="Добавить" 
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+</ContentPage>

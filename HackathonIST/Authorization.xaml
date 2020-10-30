@@ -3,27 +3,26 @@
              xmlns:local="clr-namespace:HackathonIST"
              x:Class="HackathonIST.Authorization">
     <StackLayout>
-    <StackLayout.Resources>
-        <Style TargetType="Entry">
-            <Setter Property="Margin" Value="20, 0" />
-            <Setter Property="FontSize" Value="18" />
-        </Style>
+        <StackLayout.Resources>
+            <Style TargetType="Entry">
+                <Setter Property="Margin" Value="20, 0" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
 
-        <Style TargetType="Label">
-            <Setter Property="Margin" Value="20, 30, 20, 0" />
-            <Setter Property="FontSize" Value="Large" />
-        </Style>
-    </StackLayout.Resources>
-
-    <Label  Text="Введите логин:" />
-    <Entry x:Name="LoginText" 
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="20, 30, 20, 0" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+        </StackLayout.Resources>
+        
+        <Label  Text="Введите логин:" />
+        <Entry x:Name="LoginText" 
                Placeholder="Логин"/>
-    <Label Text="Введите пароль: " />
-    <Entry x:Name="entry1"
+        <Label Text="Введите пароль: " />
+        <Entry x:Name="entry3"
                Text=""
                Placeholder="Пароль" />
-    <Button x:Name="LoginButton" Text="Войти"
+        <Button x:Name="LoginButton" Clicked="LoginButton_OnClicked" Text="Войти"
             HorizontalOptions="Center" VerticalOptions="Center" />
-
-</StackLayout>
+    </StackLayout>
 </ContentPage>

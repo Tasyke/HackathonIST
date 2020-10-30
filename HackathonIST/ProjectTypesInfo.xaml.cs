@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace HackathonIST
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SideTab : TabbedPage
+    public partial class ProjectTypesInfo : ContentPage
     {
-        public SideTab()
+        public ProjectTypesInfo()
         {
             InitializeComponent();
         }

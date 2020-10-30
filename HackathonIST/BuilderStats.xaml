@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HackathonIST.BuilderStats"
+             Title="Стат.">
+    <StackLayout>
+        <StackLayout.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="20, 0, 20, 0" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+        </StackLayout.Resources>
+
+        <Label Text="Статистика" 
+               HorizontalOptions="Center"
+               FontSize="25"
+               Margin="0,20,0,0"
+               />
+        <Image Source="" />
+        <Label Text="ФИО: Иванов Иван Иванович"
+               />
+        <Label Text="Стаж: 5 лет"
+               />
+        <Label Text="Образование: ПГС"
+               />
+        <Label Text="Фирма: IST Project"
+               />
+        <TableView>
+            <TableRoot>
+                <TableSection Title="Навыки">
+                    <TextCell Text=""  />
+                    <TextCell Text=""  />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Text="Редактировать" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+</ContentPage>
