@@ -4,8 +4,7 @@
              xmlns:local="clr-namespace:HackathonIST"
              x:Class="HackathonIST.SideTab">
     <TabbedPage.Children>
-        <local:BuilderStart />
         <local:ProjectTypes />
-        <local:BuilderStats />
+        <local:BuilderStart />
     </TabbedPage.Children>
 </TabbedPage>
