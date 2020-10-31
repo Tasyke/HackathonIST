@@ -10,7 +10,7 @@ namespace HackathonIST
         {
             InitializeComponent();
 
-            MainPage = new BuilderStart();
+            MainPage = new NavigationPage (new Authorization());
         }
 
         protected override void OnStart()

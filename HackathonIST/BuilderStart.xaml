@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HackathonIST.BuilderStart"
              Title="РД">
-
+    <ScrollView>
     <StackLayout>
         <StackLayout.Resources>
             <Style TargetType="Label">
@@ -24,9 +24,10 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center" />
         <Label Text="Вы на работе уже: 0:00" />
-        <Button Text="SOS" WidthRequest="60" HorizontalOptions="Center" HeightRequest="60" BackgroundColor="Red"
-BorderColor="Red" BorderRadius="30" Image="_btnCamera.png" Grid.Row="0" Grid.Column="0" />
+        <Button Text="SOS" WidthRequest="90" HorizontalOptions="Center" HeightRequest="90" BackgroundColor="Red"
+BorderColor="Red" BorderRadius="45" Image="_btnCamera.png" Grid.Row="0" Grid.Column="0" />
         <Button Text="Завершить рабочий день" />
 
     </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -17,11 +17,7 @@
             </Style>
         </StackLayout.Resources>
 
-        <Label Text="Проекты" 
-               HorizontalOptions="Center"
-               FontSize="25"
-               Margin="0,20,0,0"
-               />
+        
         <TableView>
             <TableRoot>
                 <TableSection>
@@ -30,6 +26,8 @@
                 </TableSection>
             </TableRoot>
         </TableView>
-        <Button Text="Добавить"  />
+        <Button Text="Выбрать" 
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand" />
     </StackLayout>
 </ContentPage>
