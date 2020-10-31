@@ -137,6 +137,9 @@ namespace NetworkLibrary
 		{
 			string serverAnswer = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "GetConstructionsByBuilder");
 
+			if (serverAnswer == "Empty")
+				return new string[0];
+
 			string[] splitConstructions = serverAnswer.Split(new string[] { "<!>" }, StringSplitOptions.None);
 
 			return splitConstructions;
