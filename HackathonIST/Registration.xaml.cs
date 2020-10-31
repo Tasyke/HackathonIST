@@ -13,7 +13,7 @@ namespace HackathonIST
         {
             InitializeComponent();
         }
-        private void Registration_Clicked(object sender, EventArgs e)
+        private async void Registration_Clicked(object sender, EventArgs e)
         {
             bool notEmptyFields = true;
 
@@ -88,6 +88,11 @@ namespace HackathonIST
                 string[] regData = new string[] { EnName.Text, EnSurname.Text, EnOtch.Text, EnPhone.Text, EnFirma.Text, EnMail.Text, EnPass.Text };
                 bool result = client.SendRegisterRequest(regData);
                 client.CloseConnection();
+
+                if (result)
+				{
+                    await Navigation.PopAsync();
+                }
 			}
         }
     }
