@@ -36,7 +36,7 @@
                 WidthRequest="500"/>
         <Button Text="Регистрация" HorizontalOptions="Center" VerticalOptions="Center"
                 Margin="20, 20, 20 ,0"
-                WidthRequest="500" />
+                WidthRequest="500" Clicked="RegisterButton_OnCLiked"/>
     </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -4,30 +4,30 @@
              x:Class="HackathonIST.BuilderStart"
              Title="РД">
     <ScrollView>
-    <StackLayout>
-        <StackLayout.Resources>
-            <Style TargetType="Label">
-                <Setter Property="Margin" Value="20, 30, 20, 0" />
-                <Setter Property="FontSize" Value="Large" />
-                <Setter Property="WidthRequest" Value="500" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-            </Style>
-            <Style TargetType="Button">
-                <Setter Property="Margin" Value="20, 30, 20, 0" />
-                <Setter Property="WidthRequest" Value="500" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-            </Style>
-        </StackLayout.Resources>
-        <Button Text="Начать рабочий день"
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Margin" Value="20, 30, 20, 0" />
+                    <Setter Property="FontSize" Value="Large" />
+                    <Setter Property="WidthRequest" Value="500" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="20, 30, 20, 0" />
+                    <Setter Property="WidthRequest" Value="500" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                </Style>
+            </StackLayout.Resources>
+            <Button Text="Начать рабочий день"
                 HorizontalOptions="Center"
                 VerticalOptions="Center" />
-        <Label Text="Вы на работе уже: 0:00" />
-        <Button Text="SOS" WidthRequest="90" HorizontalOptions="Center" HeightRequest="90" BackgroundColor="Red"
-BorderColor="Red" BorderRadius="45" Image="_btnCamera.png" Grid.Row="0" Grid.Column="0" />
-        <Button Text="Завершить рабочий день" />
-
-    </StackLayout>
+            <Label Text="Вы на работе уже: 0:00" />
+            <Button Text="SOS" WidthRequest="90" HorizontalOptions="Center" HeightRequest="90" BackgroundColor="Red"
+            BorderColor="Red" BorderRadius="45" Image="_btnCamera.png" Grid.Row="0" Grid.Column="0" />
+            <Button Text="Завершить рабочий день" />
+            <Button Text="Выйти" Clicked="Logout_OnClick"/>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

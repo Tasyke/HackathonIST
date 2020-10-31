@@ -31,5 +31,12 @@ namespace HackathonIST
                 Application.Current.MainPage = new NavigationPage(worker1);
             }
         }
+
+        private async void RegisterButton_OnCLiked(object sender, EventArgs e)
+        {
+            Registration registration = new Registration();
+            await Navigation.PushAsync(registration);
+            
+        }
     }
 }
