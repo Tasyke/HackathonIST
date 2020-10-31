@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using HackathonIST;
 using HackathonIST.back;
 
 namespace NetworkLibrary
@@ -128,11 +130,13 @@ namespace NetworkLibrary
 			return int.Parse(serverAnswer);
 		}
 
-		public void GetBuilderConstructions()
+		public string[] GetBuilderConstructions()
 		{
 			string serverAnswer = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "GetConstructionsByBuilder");
 
 			string[] splitConstructions = serverAnswer.Split(new string[] { "<!>" }, StringSplitOptions.None);
+
+			return splitConstructions;
 		}
 
 		public void SendSOSSignal()
