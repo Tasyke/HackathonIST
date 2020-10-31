@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HackathonIST.BuilderStart"
-             Title="РД">
+             Title="Рабочий День">
     <ScrollView>
     <StackLayout>
         <StackLayout.Resources>
@@ -20,14 +20,18 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
         </StackLayout.Resources>
-        <Button Text="Начать рабочий день"
+            <Button x:Name="ButtonDS" Text="Начать рабочий день" Clicked="StartDay_Clicked"
                 HorizontalOptions="Center"
-                VerticalOptions="Center" />
-        <Label Text="Вы на работе уже: 0:00" />
-        <Button Text="SOS" WidthRequest="90" HorizontalOptions="Center" HeightRequest="90" BackgroundColor="Red"
-BorderColor="Red" BorderRadius="45" Image="_btnCamera.png" Grid.Row="0" Grid.Column="0" />
-        <Button Text="Завершить рабочий день" />
-
-    </StackLayout>
+                VerticalOptions="Center"
+                IsVisible="true"/>
+            <Button x:Name="ButtonED" Text="Завершить рабочий день" Clicked="EndDay_Clicked"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="false"/>
+            <Label Text="Вы на работе уже: 0:00" x:Name="OnWork"  IsVisible="false" />
+            <Button Text="SOS" x:Name="SOSbutton" WidthRequest="90" HorizontalOptions="Center" HeightRequest="90" BackgroundColor="Red"
+BorderColor="Red" BorderRadius="45" Grid.Row="0" Grid.Column="0" IsVisible="false" />
+            <Button Text="Выйти" />
+        </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -29,7 +29,13 @@
             <Label Text="Пароль: " />
             <Entry IsPassword="true"
                Text="" />
-            <Label  Text="ФИО:"
+            <Label  Text="Фамилия:"
+               HorizontalOptions="Center" />
+            <Entry Placeholder="" />
+            <Label  Text="Имя:"
+               HorizontalOptions="Center" />
+            <Entry Placeholder="" />
+            <Label  Text="Отчество:"
                HorizontalOptions="Center" />
             <Entry Placeholder="" />
             <Label  Text="Фирма:"

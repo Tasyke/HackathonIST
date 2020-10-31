@@ -16,5 +16,20 @@ namespace HackathonIST
         {
             InitializeComponent();
         }
+
+        private void StartDay_Clicked(object sender, EventArgs e)
+        {
+            ButtonDS.IsVisible = false;
+            ButtonED.IsVisible = true;
+            SOSbutton.IsVisible = true;
+            OnWork.IsVisible = true;
+        }
+        private void EndDay_Clicked(object sender, EventArgs e)
+        {
+            ButtonDS.IsVisible = true;
+            ButtonED.IsVisible = false;
+            SOSbutton.IsVisible = false;
+            OnWork.IsVisible = false;
+        }
     }
 }
