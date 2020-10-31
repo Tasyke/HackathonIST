@@ -26,7 +26,7 @@ namespace HackathonIST
 
             if (login == "a")
             {
-                BuilderStart worker1 = new BuilderStart();
+                SideTab worker1 = new SideTab();
                 await Navigation.PushAsync(worker1);
             }
             else if (login == "b")
