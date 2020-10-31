@@ -38,7 +38,7 @@ namespace HackathonIST
         private async void Logout_OnClick(object sender, EventArgs e)
         {
             //App.Current.Properties.Remove("Login");
-            App.Current.MainPage = new Authorization();
+            App.Current.MainPage = new NavigationPage( new Authorization());
 
             await Navigation.PopToRootAsync();
         }
