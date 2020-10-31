@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
+using HackathonIST.back;
 
 namespace NetworkLibrary
 {
@@ -133,6 +134,21 @@ namespace NetworkLibrary
 				//_workers.workers = new List<Worker>();
 				//_workers = JsonSerializer.Deserialize<WorkersList>(JSON);
 			}
+		}
+
+		public void SendSOSSignal()
+		{
+			SendToServer(BuilderData.builderID.ToString(),"sos");
+		}
+
+		public void SendStartWorkRequest()
+		{
+			
+		}
+		
+		public void SendEndWorkRequest()
+		{
+
 		}
 
 		public bool SendRegisterRequest(string[] registerData)
