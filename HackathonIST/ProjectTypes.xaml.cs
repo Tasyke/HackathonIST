@@ -36,10 +36,13 @@ namespace HackathonIST
 
             _buildings.Clear();
 
-            for (int i = 0; i < dataBuildings.Length; i++)
+            if (dataBuildings.Length > 0)
             {
-                string[] construction = dataBuildings[i].Split(new string[] { "<;>" }, StringSplitOptions.None);
-                _buildings.Add(new Buildings() { BuildingsID = int.Parse(construction[0]), Adress = construction[1], Name = construction[2] });
+                for (int i = 0; i < dataBuildings.Length; i++)
+                {
+                    string[] construction = dataBuildings[i].Split(new string[] { "<;>" }, StringSplitOptions.None);
+                    _buildings.Add(new Buildings() { BuildingsID = int.Parse(construction[0]), Adress = construction[1], Name = construction[2] });
+                }
             }
         }
 
