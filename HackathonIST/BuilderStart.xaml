@@ -4,22 +4,22 @@
              x:Class="HackathonIST.BuilderStart"
              Title="Рабочий День">
     <ScrollView>
-    <StackLayout>
-        <StackLayout.Resources>
-            <Style TargetType="Label">
-                <Setter Property="Margin" Value="20, 30, 20, 0" />
-                <Setter Property="FontSize" Value="Large" />
-                <Setter Property="WidthRequest" Value="500" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-            </Style>
-            <Style TargetType="Button">
-                <Setter Property="Margin" Value="20, 30, 20, 0" />
-                <Setter Property="WidthRequest" Value="500" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-            </Style>
-        </StackLayout.Resources>
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Margin" Value="20, 30, 20, 0" />
+                    <Setter Property="FontSize" Value="Large" />
+                    <Setter Property="WidthRequest" Value="500" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="20, 30, 20, 0" />
+                    <Setter Property="WidthRequest" Value="500" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                </Style>
+            </StackLayout.Resources>
             <Button x:Name="ButtonDS" Text="Начать рабочий день" Clicked="StartDay_Clicked"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
