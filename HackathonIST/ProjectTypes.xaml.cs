@@ -21,39 +21,32 @@ namespace HackathonIST
         {
             InitializeComponent();
 
-            _buildings = new ObservableCollection<Buildings>
-            {
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"},
-                new Buildings{BuildingsID = 0, Name = "body" ,Adress = "Some"},
-                new Buildings{BuildingsID = 1, Name = "iiii" ,Adress = "ddd"}
-            };
+            _buildings = new ObservableCollection<Buildings>();
+            UpdateBuildings();
             this.BindingContext = this;
             BuildingsList.ItemsSource = _buildings;
         }
+
+        private void UpdateBuildings()
+		{
+            NetworkClient client = new NetworkClient();
+            client.ConnectToServer();
+            string[] dataBuildings = client.GetBuilderConstructions();
+            client.CloseConnection();
+
+            _buildings.Clear();
+
+            for (int i = 0; i < dataBuildings.Length; i++)
+            {
+                string[] construction = dataBuildings[i].Split(new string[] { "<;>" }, StringSplitOptions.None);
+                _buildings.Add(new Buildings() { BuildingsID = int.Parse(construction[0]), Adress = construction[1], Name = construction[2] });
+            }
+        }
+
         private void Button_Clicked(object sender, EventArgs e)
         {
             //_buildings.Add(new Buildings { Name = "Galaxy S8", Adress = "Samsung"});
-            NetworkClient client = new NetworkClient();
-            client.ConnectToServer();
-            client.GetBuilderConstructions();
-            client.CloseConnection();
+            UpdateBuildings();
         }
     }
 
