@@ -22,26 +22,25 @@
             
             <Label  Text="Телефон:"
                HorizontalOptions="Center" />
-            <Entry Placeholder="" />
+            <Entry x:Name="EnPhone" Placeholder="" />
             <Label  Text="E-mail:"
                HorizontalOptions="Center" />
-            <Entry Placeholder="" />
+            <Entry x:Name="EnMail"  Placeholder="" />
             <Label Text="Пароль: " />
-            <Entry IsPassword="true"
-               Text="" />
-            <Label  Text="Фамилия:"
+            <Entry x:Name="EnPass"  IsPassword="true" />
+            <Label Text="Фамилия:"
                HorizontalOptions="Center" />
-            <Entry Placeholder="" />
+            <Entry x:Name="EnSurname"  Placeholder="" />
             <Label  Text="Имя:"
                HorizontalOptions="Center" />
-            <Entry Placeholder="" />
-            <Label  Text="Отчество:"
+            <Entry x:Name="EnName"  Placeholder="" />
+            <Label Text="Отчество:"
                HorizontalOptions="Center" />
-            <Entry Placeholder="" />
+            <Entry x:Name="EnOtch"  Placeholder="" />
             <Label  Text="Фирма:"
                HorizontalOptions="Center" />
-            <Entry Placeholder="" />
-            <Button Text="Зарегистрироваться" HorizontalOptions="Center" VerticalOptions="Center"
+            <Entry x:Name="EnFirma"  Placeholder="" />
+            <Button Text="Зарегистрироваться" x:Name="RegBut" Clicked="Registration_Clicked" HorizontalOptions="Center" VerticalOptions="Center"
                 Margin="20, 20, 20 ,0"
                 WidthRequest="500" />
         </StackLayout>
