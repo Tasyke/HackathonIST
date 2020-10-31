@@ -135,7 +135,7 @@ namespace NetworkLibrary
 			}
 		}
 
-		public void SendRegisterRequest(string[] registerData)
+		public bool SendRegisterRequest(string[] registerData)
 		{
 			string data = "";
 
@@ -145,10 +145,13 @@ namespace NetworkLibrary
 
 			string serverAnswer = GetServerCmdAnswer(data, "cmd", "RegisterUser");
 
-			//Console.WriteLine(serverAnswer);
+			if (serverAnswer == "True")
+				return true;
+			else
+				return false;
 		}
 
-		public void SendAuthentificationRequest(string[] authData)
+		public bool SendAuthentificationRequest(string[] authData)
 		{
 			string data = "";
 
@@ -158,7 +161,10 @@ namespace NetworkLibrary
 
 			string serverAnswer = GetServerCmdAnswer(data, "cmd", "AuthUser");
 
-			//Console.WriteLine(serverAnswer);
+			if (serverAnswer == "True")
+				return true;
+			else
+				return false;
 		}
 
 		public NetworkClient(string address, int port)
@@ -172,15 +178,4 @@ namespace NetworkLibrary
 			CloseConnection();
 		}
 	}
-
-	//public class WorkersList
-	//{ 
-	//	public List<Worker> workers { get; set; }
-	//}
-
-	//public class Worker
-	//{
-	//	public int userID { get; set; }
-	//	public string userName { get; set; }
-	//}
 }

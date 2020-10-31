@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using NetworkLibrary;
 
 namespace HackathonIST
 {
@@ -23,9 +24,37 @@ namespace HackathonIST
 
         private async void LoginButton_OnClicked(object sender, EventArgs e)
         {
-            var login = LoginText.Text;
-            App.Current.Properties.Add("Login", login);
-            if (login == "a")
+            //var login = LoginText.Text;
+            //if (App.Current.Properties.ContainsKey("Login"))
+            //{
+            //    if (login == "a")
+            //    {
+            //        SideTab worker1 = new SideTab();
+            //        Application.Current.MainPage = new NavigationPage(worker1);
+            //    }
+            //}
+            //else
+            //{
+            //    App.Current.Properties.Add("Login", login);
+            //    if (login == "a")
+            //    {
+            //        SideTab worker1 = new SideTab();
+            //        Application.Current.MainPage = new NavigationPage(worker1);
+            //    }
+            //}
+
+            string login = LoginText.Text;
+            string password = entry3.Text;
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+                return;
+
+            NetworkClient client = new NetworkClient("95.142.47.122", 8686);
+            client.ConnectToServer();
+            bool isAuth = client.SendAuthentificationRequest(new string[] { login, password });
+            client.CloseConnection();
+
+            if (isAuth)
             {
                 SideTab worker1 = new SideTab();
                 Application.Current.MainPage = new NavigationPage(worker1);
