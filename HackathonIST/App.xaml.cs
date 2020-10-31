@@ -9,19 +9,19 @@ namespace HackathonIST
         public App()
         {
             InitializeComponent();
-            object login;
-            if (App.Current.Properties.TryGetValue("Login", out login))
-            {
-               // if (login == "a")
-               // {
-                    MainPage = new NavigationPage(new SideTab());
-               // }
+            //object login;
+            //if (App.Current.Properties.TryGetValue("Login", out login))
+            //{
+            //   // if (login == "a")
+            //   // {
+            MainPage = new NavigationPage(new Authorization());
+            //   // }
                 
-            }
-            else
-            {
-                MainPage = new NavigationPage(new Authorization());
-            }
+            //}
+            //else
+            //{
+            //    MainPage = new NavigationPage(new Authorization());
+            //}
             
         }
 

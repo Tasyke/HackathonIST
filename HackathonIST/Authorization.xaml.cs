@@ -20,10 +20,10 @@ namespace HackathonIST
 
         protected internal void DisplayStack()
         {
-            NavigationPage navPage = (NavigationPage)App.Current.MainPage;
+           // NavigationPage navPage = (NavigationPage)App.Current.MainPage;
         }
 
-        private void LoginButton_OnClicked(object sender, EventArgs e)
+        private async void LoginButton_OnClicked(object sender, EventArgs e)
         {
             //var login = LoginText.Text;
             //if (App.Current.Properties.ContainsKey("Login"))
@@ -58,8 +58,8 @@ namespace HackathonIST
 
             if (isAuth)
             {
-                SideTab worker1 = new SideTab();
-                Application.Current.MainPage = new NavigationPage(worker1);
+                Application.Current.MainPage = new SideTab();
+                await Navigation.PopToRootAsync(true);
             }
         }
 
