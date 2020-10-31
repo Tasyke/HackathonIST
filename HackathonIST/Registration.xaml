@@ -22,10 +22,10 @@
             
             <Label  Text="Телефон:"
                HorizontalOptions="Center" />
-            <Entry x:Name="EnPhone" Placeholder="" />
+            <Entry x:Name="EnPhone" Placeholder="" Keyboard="Telephone" />
             <Label  Text="E-mail:"
                HorizontalOptions="Center" />
-            <Entry x:Name="EnMail"  Placeholder="" />
+            <Entry x:Name="EnMail"  Placeholder="" Keyboard="Email" />
             <Label Text="Пароль: " />
             <Entry x:Name="EnPass"  IsPassword="true" />
             <Label Text="Фамилия:"
