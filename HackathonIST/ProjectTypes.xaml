@@ -17,17 +17,27 @@
             </Style>
         </StackLayout.Resources>
 
-        
-        <TableView>
-            <TableRoot>
-                <TableSection>
-                    <TextCell Text="Многоэтажное здание"  />
-                    <TextCell Text="Школа"  />
-                </TableSection>
-            </TableRoot>
-        </TableView>
-        <Button Text="Выбрать" 
+        <ListView x:Name="BuildingsList"
+              HasUnevenRows="True"
+              ItemsSource="{Binding Buildings}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontSize="18" />
+                                <Label Text="{Binding Adress}" FontSize="15"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout>
+            <Button Text="Обновить" Clicked="Button_Clicked"></Button>
+            <Button Text="Выбрать" 
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>

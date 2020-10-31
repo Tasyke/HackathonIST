@@ -22,7 +22,7 @@ namespace HackathonIST
             NavigationPage navPage = (NavigationPage)App.Current.MainPage;
         }
 
-        private async void LoginButton_OnClicked(object sender, EventArgs e)
+        private void LoginButton_OnClicked(object sender, EventArgs e)
         {
             //var login = LoginText.Text;
             //if (App.Current.Properties.ContainsKey("Login"))
@@ -42,7 +42,7 @@ namespace HackathonIST
             //        Application.Current.MainPage = new NavigationPage(worker1);
             //    }
             //}
-
+            
             string login = LoginText.Text;
             string password = entry3.Text;
 

@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Text.Json;
 using HackathonIST.back;
 
 namespace NetworkLibrary
@@ -138,7 +137,7 @@ namespace NetworkLibrary
 
 		public void SendSOSSignal()
 		{
-			SendToServer(BuilderData.builderID.ToString(),"sos");
+			//SendToServer(BuilderData.builderID.ToString(),"sos");
 		}
 
 		public void SendStartWorkRequest()
