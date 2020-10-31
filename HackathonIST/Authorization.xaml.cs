@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HackathonIST
@@ -23,18 +24,19 @@ namespace HackathonIST
         private async void LoginButton_OnClicked(object sender, EventArgs e)
         {
             var login = LoginText.Text;
-
+            App.Current.Properties.Add("Login", login);
             if (login == "a")
             {
                 SideTab worker1 = new SideTab();
-                await Navigation.PushAsync(worker1);
+                Application.Current.MainPage = new NavigationPage(worker1);
             }
-            else if (login == "b")
-            {
-                BuilderStart worker1 = new BuilderStart();
-                await Navigation.PushAsync(worker1);
-            }
+        }
 
+        private async void RegisterButton_OnCLiked(object sender, EventArgs e)
+        {
+            Registration registration = new Registration();
+            await Navigation.PushAsync(registration);
+            
         }
     }
 }
