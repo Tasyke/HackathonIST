@@ -191,9 +191,9 @@ namespace NetworkLibrary
 			endPoint = new IPEndPoint(ipAddress, PORT);
 		}
 
-		~NetworkClient()
-		{
-			CloseConnection();
-		}
+		//~NetworkClient()
+		//{
+		//	CloseConnection();
+		//}
 	}
 }
