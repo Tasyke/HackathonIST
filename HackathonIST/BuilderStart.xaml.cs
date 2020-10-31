@@ -31,5 +31,11 @@ namespace HackathonIST
             SOSbutton.IsVisible = false;
             OnWork.IsVisible = false;
         }
+        private void Logout_OnClick(object sender, EventArgs e)
+        {
+            App.Current.Properties.Remove("Login");
+            App.Current.MainPage = new Authorization();
+
+        }
     }
 }
