@@ -7,22 +7,31 @@
             <Style TargetType="Entry">
                 <Setter Property="Margin" Value="20, 0" />
                 <Setter Property="FontSize" Value="18" />
+                <Setter Property="WidthRequest" Value="500" />
+                <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
 
             <Style TargetType="Label">
                 <Setter Property="Margin" Value="20, 30, 20, 0" />
                 <Setter Property="FontSize" Value="Large" />
+                <Setter Property="WidthRequest" Value="500" />
+                <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
         </StackLayout.Resources>
-        
-        <Label  Text="Введите логин:" />
+
+        <Label  Text="Введите логин:"
+               HorizontalOptions="Center" />
         <Entry x:Name="LoginText" 
-               Placeholder="Логин"/>
+               Placeholder="Логин"
+               />
         <Label Text="Введите пароль: " />
         <Entry x:Name="entry3"
+               IsPassword="true"
                Text=""
                Placeholder="Пароль" />
         <Button x:Name="LoginButton" Clicked="LoginButton_OnClicked" Text="Войти"
-            HorizontalOptions="Center" VerticalOptions="Center" />
+            HorizontalOptions="Center" VerticalOptions="Center"
+                Margin="20, 50, 20 ,0"
+                WidthRequest="500"/>
     </StackLayout>
 </ContentPage>
