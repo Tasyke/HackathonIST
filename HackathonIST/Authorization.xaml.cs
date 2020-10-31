@@ -22,7 +22,7 @@ namespace HackathonIST
             NavigationPage navPage = (NavigationPage)App.Current.MainPage;
         }
 
-        private async void LoginButton_OnClicked(object sender, EventArgs e)
+        private void LoginButton_OnClicked(object sender, EventArgs e)
         {
             //var login = LoginText.Text;
             //if (App.Current.Properties.ContainsKey("Login"))
@@ -49,7 +49,7 @@ namespace HackathonIST
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
                 return;
 
-            NetworkClient client = new NetworkClient("95.142.47.122", 8686);
+            NetworkClient client = new NetworkClient();
             client.ConnectToServer();
             bool isAuth = client.SendAuthentificationRequest(new string[] { login, password });
             client.CloseConnection();

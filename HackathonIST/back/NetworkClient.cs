@@ -17,6 +17,9 @@ namespace NetworkLibrary
 		private int HEADER_LENGTH = 24;
 		private int REQUEST_LENGTH = 24;
 
+		private string ADDRESS = "95.142.47.122";
+		private int PORT = 8686;
+
 		public void ConnectToServer()
 		{
 			socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -143,12 +146,12 @@ namespace NetworkLibrary
 
 		public void SendStartWorkRequest()
 		{
-			
+			string serverAnswer = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "StartWork");
 		}
 		
 		public void SendEndWorkRequest()
 		{
-
+			string serverAnswer = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "EndWork");
 		}
 
 		public bool SendRegisterRequest(string[] registerData)
@@ -183,10 +186,10 @@ namespace NetworkLibrary
 				return false;
 		}
 
-		public NetworkClient(string address, int port)
+		public NetworkClient()
 		{
-			ipAddress = IPAddress.Parse(address);
-			endPoint = new IPEndPoint(ipAddress, port);
+			ipAddress = IPAddress.Parse(ADDRESS);
+			endPoint = new IPEndPoint(ipAddress, PORT);
 		}
 
 		~NetworkClient()
