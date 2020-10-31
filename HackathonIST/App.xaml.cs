@@ -9,8 +9,20 @@ namespace HackathonIST
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new Authorization());
+            object login;
+            if (App.Current.Properties.TryGetValue("Login", out login))
+            {
+               // if (login == "a")
+               // {
+                    MainPage = new NavigationPage(new SideTab());
+               // }
+                
+            }
+            else
+            {
+                MainPage = new NavigationPage(new Authorization());
+            }
+            
         }
 
         protected override void OnStart()
