@@ -24,6 +24,7 @@ def createDefaultTables():
     cursor.execute("CREATE TABLE builder (builderID INTEGER PRIMARY KEY AUTOINCREMENT, firstName VARCHAR(64), surName VARCHAR(64), lastName VARCHAR(64), phoneNumber VARCHAR(20), constructionID INTEGER, companyName VARCHAR(255), email VARCHAR(64), timestampID INTEGER);");
     cursor.execute("CREATE TABLE users (builderID INTEGER PRIMARY KEY AUTOINCREMENT, login VARCHAR(255), password VARCHAR(255))");
     cursor.execute("CREATE TABLE timestamps (timestampID INTEGER PRIMARY KEY AUTOINCREMENT, timeStart TIME, timeEnd TIME, startWorkDate DATE, endWorkDate DATE, isDone INT, builderID INTEGER)");
+    cursor.execute("CREATE TABLE builderConstructions (builderID INTEGER, constructionID INTEGER)")
 
     conn.commit()
     closeConnection(conn)
@@ -162,3 +163,30 @@ def endWork(workerID, dateTime):
         closeConnection(conn)
         return "Work ended"
 
+def getConstructionsByBuilder(builderID):
+    conn, cursor = connectToDatabase()
+    cursor.execute("SELECT * FROM construction c JOIN builderConstructions bc ON bc.constructionID = c.constructionID WHERE bc.builderID = (?)", (builderID,))
+    data = cursor.fetchall()
+    return data
+
+def getPersonalID(login):
+    conn, cursor = connectToDatabase()
+    cursor.execute("SELECT b.builderID FROM builder b JOIN users u ON u.builderID = b.builderID WHERE u.login = (?)", (login,))
+    data = cursor.fetchone()[0]
+
+    if not data:
+        closeConnection(conn)
+        return "Empty"
+    else:
+        closeConnection(conn)
+        return data
+
+# def addExtraData():
+#     conn, cursor = connectToDatabase()
+#     cursor.execute("CREATE TABLE builderConstructions (builderID INTEGER, constructionID INTEGER)")
+#     cursor.execute("INSERT INTO construction (geolocation, mainName, govContract, buildArea, customer, generalContractor, buildAllowment) VALUES ('Адрес', 'Наименование объекта', 'Гос. контракт', 'Площадь застройки', 'Застройщик', 'Генеральный заказчик', 'Разрешение на стройку'), ('Адрес 2', 'Наименование объекта 2', 'Гос. контракт 2', 'Площадь застройки 2', 'Застройщик 2', 'Генеральный заказчик 2', 'Разрешение на стройку 2'), ('Адрес 3', 'Наименование объекта 3', 'Гос. контракт 3', 'Площадь застройки 3', 'Застройщик 3', 'Генеральный заказчик 3', 'Разрешение на стройку 3')")
+#     cursor.execute("INSERT INTO builderConstructions (builderID, constructionID) VALUES (1, 1), (1, 2), (1, 3), (3, 1), (3, 2)")
+#     conn.commit()
+#     closeConnection(conn)
+
+# getConstructionsByBuilder(1)

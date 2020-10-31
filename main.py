@@ -10,8 +10,8 @@ import dbhandler
 SECRET_HANDSHAKE = "SECRET_HANDSHAKE"
 SERVER_ADDRESS = ("95.142.47.122", 8686)
 MAX_CONNECTIONS = 50
-HEADER_LENGTH = 24
-REQUEST_LENGTH = 24
+HEADER_LENGTH = 32
+REQUEST_LENGTH = 32
 
 INPUTS = list()
 OUTPUTS = list()
@@ -21,10 +21,6 @@ def check_client_input(input):
     header = input[:HEADER_LENGTH].strip()
     request = input[HEADER_LENGTH:HEADER_LENGTH + REQUEST_LENGTH].strip()
     body = input[HEADER_LENGTH + REQUEST_LENGTH:]
-    
-    print(header)
-    print(request)
-    print(body)
 
     if (header == "handshake"):
         return SECRET_HANDSHAKE
@@ -37,24 +33,12 @@ def check_client_input(input):
 
 def SOSSignal():
     # Отправляем сигнал диспетчерам
-    pass
+    return "Not implemented function"
 
 def execute_cmd(cmd, body):
-    print(f"Trying new command: ", cmd)
+    print(f"[SERVER] Execute CMD: ", cmd, " BODY: ", body)
 
-    if (cmd == "GetDatabase"):
-        data = dbhandler.getBuilderInfo()
-        if not data:
-            return "Empty"
-
-        request = '{"workers":['
-        for user in data:
-            request += '{' + f"\"userID\":{user[0]},\"userName\":\"{user[1]}\"" + '},'
-        request = request[:-1]
-        request += ']}'
-        return request
-
-    elif (cmd == "RegisterUser"):
+    if (cmd == "RegisterUser"):
         reg = dbhandler.registerUser(body)
         if reg:
             return "True"
@@ -71,9 +55,27 @@ def execute_cmd(cmd, body):
     elif (cmd == "StartWork"):
         request = dbhandler.startWork(int(body), datetime.datetime.now())
         return request
+
     elif (cmd == "EndWork"):
         request = dbhandler.endWork(int(body), datetime.datetime.now())
         return request
+
+    elif (cmd == "GetPersonalID"):
+        request = dbhandler.getPersonalID(body)
+        return request
+
+    elif (cmd == "GetConstructionsByBuilder"):
+        request = dbhandler.getConstructionsByBuilder(body)
+        message = ''
+        for x in request:
+            for y in x:
+                message += str(y) + '<;>'
+            message = message[:-3]
+            message += '<!>'
+        message = message[:-3]
+        
+        return message
+    
     else:
         return "Not accepted command"
 
@@ -94,18 +96,18 @@ def handle_readables(readables, server):
             connection.setblocking(0)
             INPUTS.append(connection)
             
-            print("[TIMESTAMP]: " + str(datetime.datetime.now()))
-            print (f"\nNew client: {client_address}")
+            print("\n[TIMESTAMP]: " + str(datetime.datetime.now()))
+            print (f"[CLIENT] New connection: {client_address}")
         else:
             data = ""
             
             try: 
                 data = resource.recv(4096)
             except ConnectionResetError:
-                print(f"Connection Error")
+                print(f"[ERROR] Client disconnected")
 
             if data:
-                print(f"Get data from client: {str(data, encoding='utf-8')}")
+                print(f"[SERVER] Get data from client: {str(data, encoding='utf-8')}")
                 result = check_client_input(str(data, encoding='utf-8'))
                 ANSWERS.update({resource: result})
                 if resource not in OUTPUTS:
@@ -123,13 +125,13 @@ def clear_resource(resource):
         ANSWERS.pop(resource)
     
     resource.close();                
-    print("Closed connection with client")
+    print("[SERVER] Closed connection with client")
 
 def handle_writables(writables):
 
     for resource in writables:
         try: 
-            print("Send data to client...")
+            print("[SERVER] Send data to client...")
             resource.sendall(bytes(f"{ANSWERS.pop(resource)}", encoding='UTF-8'))
             OUTPUTS.remove(resource)
         except OSError:
