@@ -18,57 +18,57 @@ namespace HackathonIST
         }
         private void Registration_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(EnPhone.Text))
+            if (string.IsNullOrEmpty(EnPhone.Text))
             {
-                EnPhone.BackgroundColor = Color.Red;
+                EnPhone.BackgroundColor = Color.FromHex("#FC4444");
             }
             else
             {
                 EnPhone.BackgroundColor = Color.White;
             }
-            if (!string.IsNullOrEmpty(EnMail.Text))
+            if (string.IsNullOrEmpty(EnMail.Text))
             {
-                EnMail.BackgroundColor = Color.Red;
+                EnMail.BackgroundColor = Color.FromHex("#FC4444");
             }
             else
             {
                 EnMail.BackgroundColor = Color.White;
             }
-            if (!string.IsNullOrEmpty(EnPass.Text))
+            if (string.IsNullOrEmpty(EnPass.Text))
             {
-                EnPass.BackgroundColor = Color.Red;
+                EnPass.BackgroundColor = Color.FromHex("#FC4444");
             }
             else
             {
                 EnPass.BackgroundColor = Color.White;
             }
-            if (!string.IsNullOrEmpty(EnSurname.Text))
+            if (string.IsNullOrEmpty(EnSurname.Text))
             {
-                EnSurname.BackgroundColor = Color.Red;
+                EnSurname.BackgroundColor = Color.FromHex("#FC4444");
             }
             else
             {
                 EnSurname.BackgroundColor = Color.White;
             }
-            if (!string.IsNullOrEmpty(EnName.Text))
+            if (string.IsNullOrEmpty(EnName.Text))
             {
-                EnName.BackgroundColor = Color.Red;
+                EnName.BackgroundColor = Color.FromHex("#FC4444");
             }
             else
             {
                 EnName.BackgroundColor = Color.White;
             }
-            if (!string.IsNullOrEmpty(EnOtch.Text))
+            if (string.IsNullOrEmpty(EnOtch.Text))
             {
-                EnOtch.BackgroundColor = Color.Red;
+                EnOtch.BackgroundColor = Color.FromHex("#FC4444");
             }
             else
             {
                 EnOtch.BackgroundColor = Color.White;
             }
-            if (!string.IsNullOrEmpty(EnFirma.Text))
+            if (string.IsNullOrEmpty(EnFirma.Text))
             {
-                EnFirma.BackgroundColor = Color.Red;
+                EnFirma.BackgroundColor = Color.FromHex("#FC4444");
             }
             else
             {

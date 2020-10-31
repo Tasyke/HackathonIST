@@ -27,8 +27,7 @@
                HorizontalOptions="Center" />
             <Entry x:Name="EnMail"  Placeholder="" />
             <Label Text="Пароль: " />
-            <Entry x:Name="EnPass"  IsPassword="true"
-               Text="" />
+            <Entry x:Name="EnPass"  IsPassword="true" />
             <Label Text="Фамилия:"
                HorizontalOptions="Center" />
             <Entry x:Name="EnSurname"  Placeholder="" />
