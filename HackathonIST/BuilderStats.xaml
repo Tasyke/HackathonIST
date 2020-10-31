@@ -6,16 +6,21 @@
     <StackLayout>
         <StackLayout.Resources>
             <Style TargetType="Label">
-                <Setter Property="Margin" Value="20, 0, 20, 0" />
                 <Setter Property="FontSize" Value="Large" />
+                <Setter Property="Margin" Value="20,0, 20,0" />
+                <Setter Property="WidthRequest" Value="500" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="20, 30, 20, 0" />
+                <Setter Property="WidthRequest" Value="500" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
         </StackLayout.Resources>
 
-        <Label Text="Статистика" 
-               HorizontalOptions="Center"
-               FontSize="25"
-               Margin="0,20,0,0"
-               />
+
         <Image Source="" />
         <Label Text="ФИО: Иванов Иван Иванович"
                />
@@ -25,14 +30,9 @@
                />
         <Label Text="Фирма: IST Project"
                />
-        <TableView>
-            <TableRoot>
-                <TableSection Title="Навыки">
-                    <TextCell Text=""  />
-                    <TextCell Text=""  />
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <Label Text="Навыки:"
+               />
+
         <Button Text="Редактировать" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

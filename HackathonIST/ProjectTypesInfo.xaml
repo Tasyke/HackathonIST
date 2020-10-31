@@ -19,7 +19,7 @@
         <Label Text="Заведующий проектом:" />
         <Label Text="Адрес: " />
         <Label Text="Статус проекта: " />
-        <Button Text="Вернуться" />
+        <Button Text="Вернуться"  />
 
     </StackLayout>
 </ContentPage>

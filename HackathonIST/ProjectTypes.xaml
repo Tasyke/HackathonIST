@@ -9,6 +9,12 @@
                 <Setter Property="Margin" Value="20, 0, 20, 0" />
                 <Setter Property="FontSize" Value="Large" />
             </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="20, 30, 20, 0" />
+                <Setter Property="WidthRequest" Value="500" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
         </StackLayout.Resources>
 
         <Label Text="Проекты" 
@@ -24,8 +30,6 @@
                 </TableSection>
             </TableRoot>
         </TableView>
-        <Button Text="Добавить" 
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand" />
+        <Button Text="Добавить"  />
     </StackLayout>
 </ContentPage>
