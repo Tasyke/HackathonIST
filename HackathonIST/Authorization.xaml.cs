@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using NetworkLibrary;
+using HackathonIST.back;
 
 namespace HackathonIST
 {
@@ -52,6 +53,7 @@ namespace HackathonIST
             NetworkClient client = new NetworkClient();
             client.ConnectToServer();
             bool isAuth = client.SendAuthentificationRequest(new string[] { login, password });
+            BuilderData.builderID = client.GetPersonalID(login);
             client.CloseConnection();
 
             if (isAuth)

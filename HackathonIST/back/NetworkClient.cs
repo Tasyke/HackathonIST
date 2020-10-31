@@ -13,8 +13,8 @@ namespace NetworkLibrary
 
 		private Socket socket;
 
-		private int HEADER_LENGTH = 24;
-		private int REQUEST_LENGTH = 24;
+		private int HEADER_LENGTH = 32;
+		private int REQUEST_LENGTH = 32;
 
 		private string ADDRESS = "95.142.47.122";
 		private int PORT = 8686;
@@ -121,21 +121,18 @@ namespace NetworkLibrary
 			return GetServerAnswer();
 		}
 
-		public void GetDatabaseInfo()
+		public int GetPersonalID(string login)
 		{
-			string JSON = GetServerCmdAnswer("", "cmd", "GetDatabase");
-			//Console.WriteLine(JSON);
+			string serverAnswer = GetServerCmdAnswer(login, "cmd", "GetPersonalID");
 
-			if (JSON == "Empty")
-			{
-				//Console.WriteLine("Пустой поток данных");
-			}
-			else
-			{
-				//WorkersList _workers = new WorkersList();
-				//_workers.workers = new List<Worker>();
-				//_workers = JsonSerializer.Deserialize<WorkersList>(JSON);
-			}
+			return int.Parse(serverAnswer);
+		}
+
+		public void GetBuilderConstructions()
+		{
+			string serverAnswer = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "GetConstructionsByBuilder");
+
+			string[] splitConstructions = serverAnswer.Split(new string[] { "<!>" }, StringSplitOptions.None);
 		}
 
 		public void SendSOSSignal()
@@ -189,11 +186,6 @@ namespace NetworkLibrary
 		{
 			ipAddress = IPAddress.Parse(ADDRESS);
 			endPoint = new IPEndPoint(ipAddress, PORT);
-		}
-
-		~NetworkClient()
-		{
-			CloseConnection();
 		}
 	}
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using NetworkLibrary;
 using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
@@ -49,6 +50,10 @@ namespace HackathonIST
         private void Button_Clicked(object sender, EventArgs e)
         {
             //_buildings.Add(new Buildings { Name = "Galaxy S8", Adress = "Samsung"});
+            NetworkClient client = new NetworkClient();
+            client.ConnectToServer();
+            client.GetBuilderConstructions();
+            client.CloseConnection();
         }
     }
 
