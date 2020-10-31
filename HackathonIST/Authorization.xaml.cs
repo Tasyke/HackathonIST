@@ -53,11 +53,14 @@ namespace HackathonIST
             NetworkClient client = new NetworkClient();
             client.ConnectToServer();
             bool isAuth = client.SendAuthentificationRequest(new string[] { login, password });
-            BuilderData.builderID = client.GetPersonalID(login);
             client.CloseConnection();
 
             if (isAuth)
             {
+                client = new NetworkClient();
+                client.ConnectToServer();
+                BuilderData.builderID = client.GetPersonalID(login);
+                client.CloseConnection();
                 Application.Current.MainPage = new SideTab();
                 await Navigation.PopToRootAsync(true);
             }

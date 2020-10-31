@@ -127,7 +127,10 @@ namespace NetworkLibrary
 		{
 			string serverAnswer = GetServerCmdAnswer(login, "cmd", "GetPersonalID");
 
-			return int.Parse(serverAnswer);
+			if (serverAnswer == "Empty")
+				return -1;
+			else
+				return int.Parse(serverAnswer);
 		}
 
 		public string[] GetBuilderConstructions()
@@ -141,7 +144,7 @@ namespace NetworkLibrary
 
 		public void SendSOSSignal()
 		{
-			//SendToServer(BuilderData.builderID.ToString(),"sos");
+			SendToServer(BuilderData.builderID.ToString(),"sos");
 		}
 
 		public void SendStartWorkRequest()
