@@ -6,5 +6,6 @@
     <TabbedPage.Children>
         <local:ProjectTypes />
         <local:BuilderStart />
+        <local:BuilderStats />
     </TabbedPage.Children>
 </TabbedPage>
