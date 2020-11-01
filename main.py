@@ -66,16 +66,29 @@ def execute_cmd(cmd, body):
 
     elif (cmd == "GetConstructionsByBuilder"):
         request = dbhandler.getConstructionsByBuilder(body)
-        message = ''
-        for x in request:
-            for y in x:
-                message += str(y) + '<;>'
+
+        if request == "None":
+            return "Empty"
+        else:
+            message = ''
+            for x in request:
+                for y in x:
+                    message += str(y) + '<;>'
+                message = message[:-3]
+                message += '<!>'
             message = message[:-3]
-            message += '<!>'
-        message = message[:-3]
-        
-        return message
+            
+            return message
     
+    elif (cmd == "SetBuilderGeoLocation"):
+        temp = body.split(';')
+        request = dbhandler.setBuilderGeoLocation(temp[0], temp[1])
+        return request
+
+    elif (cmd == "GetBuilderGeoLocation"):
+        request = dbhandler.getBuilderGeoLocation(body)
+        return request
+
     else:
         return "Not accepted command"
 
