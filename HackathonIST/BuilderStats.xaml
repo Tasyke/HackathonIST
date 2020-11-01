@@ -29,20 +29,20 @@
         </StackLayout.Resources>
 
 
-        <Label Text="Фамилия: " />
-        <Editor Text="" />
+        <Label Text="Фамилия: "/>
+            <Editor FontSize="Large" Text=""  x:Name="EnSurName"/>
         <Label Text="Имя: " />
-        <Editor Text="" />
+            <Editor FontSize="Large" Text=""  x:Name="EnName"/>
         <Label Text="Отчество: " />
-        <Editor Text="" />
+            <Editor FontSize="Large" Text=""  x:Name="EnLastName"/>
         <Label Text="Телефон: " />
-        <Editor Text="" />
+            <Editor FontSize="Large" Text=""  x:Name="EnPhone"/>
         <Label Text="E-mail: " />
-        <Editor Text="" />
+            <Editor FontSize="Large" Text=""  x:Name="EnEmail"/>
         <Label Text="Работодатель: " />
-        <Editor Text="" />
+            <Editor FontSize="Large" Text=""  x:Name="EnCompany"/>
         <Label Text="Специальность: " />
-        <Editor Text="" />
+            <Editor FontSize="Large" Text=""  x:Name="EnWork"/>
 
             <Button Text="Сохранить" 
                 VerticalOptions="CenterAndExpand" 

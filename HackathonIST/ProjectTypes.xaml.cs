@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using HackathonIST.back;
 
 namespace HackathonIST
 {
@@ -54,7 +55,13 @@ namespace HackathonIST
 
 		private void Button_Clicked_1(object sender, EventArgs e)
 		{
-            
+            var item = BuildingsList.SelectedItem as Buildings;
+
+            BuilderData.constructionID = item.BuildingsID;
+            NetworkClient client = new NetworkClient();
+            client.ConnectToServer();
+            client.SetConstructionToBuilder();
+            client.CloseConnection();
 		}
 	}
 

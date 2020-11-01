@@ -145,6 +145,11 @@ namespace NetworkLibrary
 			return splitConstructions;
 		}
 
+		public void SetConstructionToBuilder()
+		{
+			string answer = GetServerCmdAnswer(BuilderData.constructionID.ToString() + ";" + BuilderData.builderID.ToString(), "cmd", "SetConstructionToBuilder");
+		}
+
 		public void SetBuilderLastGeoLocation()
 		{
 			string serverAnswer = GetServerCmdAnswer((BuilderData.builderID + ";" + BuilderData.geoLocation), "cmd", "SetBuilderGeoLocation");
@@ -154,6 +159,19 @@ namespace NetworkLibrary
 		{
 			string location = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "GetBuilderGeoLocation");
 			return location;
+		}
+
+		public string[] GetBuilderInfoByID()
+		{
+			string serverAnswer = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "GetBuilderInfo");
+
+			if (serverAnswer == "None")
+				return new string[0];
+			else
+			{
+				string[] data = serverAnswer.Split(';');
+				return data;
+			}
 		}
 
 		public void SendSOSSignal()

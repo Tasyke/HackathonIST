@@ -60,11 +60,27 @@ namespace HackathonIST
                 client = new NetworkClient();
                 client.ConnectToServer();
                 BuilderData.builderID = client.GetPersonalID(login);
+                CheckBuilderData(client.GetBuilderInfoByID());
                 client.CloseConnection();
                 Application.Current.MainPage = new SideTab();
                 await Navigation.PopToRootAsync(true);
             }
         }
+
+        private void CheckBuilderData(string[] data)
+		{
+            if (data.Length > 0)
+			{
+                BuilderData.builderName = data[1];
+                BuilderData.builderSurName = data[2];
+                BuilderData.builderLastName = data[3];
+                BuilderData.builderPhone = data[4];
+                if (data[5] != "None")
+                    BuilderData.constructionID = int.Parse(data[5]);
+                BuilderData.builderMainCompany = data[6];
+                BuilderData.builderEmail = data[7];
+			}
+		}
 
         private async void RegisterButton_OnCLiked(object sender, EventArgs e)
         {
