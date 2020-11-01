@@ -28,7 +28,6 @@ namespace HackathonIST
         private void SOSButton_Clicked(object sender, EventArgs e)
         {
             SendSOS.SOSCall();
-
         }
 
         private void StartDay_Clicked(object sender, EventArgs e)
