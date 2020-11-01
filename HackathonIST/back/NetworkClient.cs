@@ -158,7 +158,7 @@ namespace NetworkLibrary
 
 		public void SendSOSSignal()
 		{
-			SendToServer(BuilderData.builderID.ToString(),"sos");
+			string serverAnswer = GetServerCmdAnswer(BuilderData.builderID.ToString(),"SOS");
 		}
 
 		public void SendStartWorkRequest()

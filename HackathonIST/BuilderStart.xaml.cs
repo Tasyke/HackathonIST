@@ -33,12 +33,14 @@ namespace HackathonIST
 
         private void SOSButton_Clicked(object sender, EventArgs e)
         {
-            //SendSOS.SOSCall();
+            NetworkClient client = new NetworkClient();
+            client.ConnectToServer();
+            client.SendSOSSignal();
+            client.CloseConnection();
         }
 
         private void StartDay_Clicked(object sender, EventArgs e)
         {
-            
             ButtonDS.IsVisible = false;
             ButtonED.IsVisible = true;
             SOSbutton.IsVisible = true;
@@ -80,6 +82,8 @@ namespace HackathonIST
             client.ConnectToServer();
             client.SendEndWorkRequest();
             client.CloseConnection();
+
+            mStopWatch.Stop();
 
             //OnWork.Text = Timer.DisableStopwatch();
 
