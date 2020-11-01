@@ -17,10 +17,10 @@
             </Style>
         </StackLayout.Resources>
 
-        <Label FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Start" Text="Ваш объект:"></Label>
+        <Label FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="Ваш объект:"></Label>
         <Label x:Name="constrTitle" FontSize="Medium" HorizontalTextAlignment="Center" Text="Наименование стройки"></Label>
         <Label x:Name="constrAddress" FontSize="Medium" HorizontalTextAlignment="Center" Text="Адрес стройки" Margin="0, 0, 0, 25"></Label>
-        <Label FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Start" Text="Список доступных объектов: "></Label>
+        <Label FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="Список доступных объектов: "></Label>
         <ListView x:Name="BuildingsList"
               HasUnevenRows="True"
               ItemsSource="{Binding Buildings}">
