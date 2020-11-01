@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Diagnostics;
+using NetworkLibrary;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -42,10 +43,16 @@ namespace HackathonIST
             ButtonED.IsVisible = true;
             SOSbutton.IsVisible = true;
             OnWork.IsVisible = true;
-            CheckGeolocation();
-            //CheckAcceleration.ToggleAccelerator();
 
+            NetworkClient client = new NetworkClient();
+            client.ConnectToServer();
+            client.SendStartWorkRequest();
+            client.CloseConnection();
+
+            //CheckGeolocation();
+            //CheckAcceleration.ToggleAccelerator();
             //OnWork.Text=Timer.ToogleStopwatch();
+            
             if (!mStopWatch.IsRunning)
             {
                 mStopWatch.Start();
@@ -67,6 +74,12 @@ namespace HackathonIST
             SOSbutton.IsVisible = false;
             OnWork.IsVisible = false;
             alive = false;
+
+            NetworkClient client = new NetworkClient();
+            client.ConnectToServer();
+            client.SendEndWorkRequest();
+            client.CloseConnection();
+
             //OnWork.Text = Timer.DisableStopwatch();
 
             //CheckAcceleration.DisableAccelerator();
