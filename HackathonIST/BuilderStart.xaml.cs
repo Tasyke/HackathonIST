@@ -44,12 +44,13 @@ namespace HackathonIST
             SOSbutton.IsVisible = true;
             OnWork.IsVisible = true;
 
+            CheckGeolocation();
+
             NetworkClient client = new NetworkClient();
             client.ConnectToServer();
             client.SendStartWorkRequest();
             client.CloseConnection();
 
-            //CheckGeolocation();
             //CheckAcceleration.ToggleAccelerator();
             //OnWork.Text=Timer.ToogleStopwatch();
             
@@ -112,7 +113,12 @@ namespace HackathonIST
 
                 if (location != null)
                 {
+                    BuilderData.geoLocation = location.Latitude + " " + location.Longitude;
 
+                    NetworkClient client = new NetworkClient();
+                    client.ConnectToServer();
+                    client.SetBuilderLastGeoLocation();
+                    client.CloseConnection();
                 }
             }
             catch (FeatureNotSupportedException fnsEx)

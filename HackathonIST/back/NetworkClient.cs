@@ -145,6 +145,17 @@ namespace NetworkLibrary
 			return splitConstructions;
 		}
 
+		public void SetBuilderLastGeoLocation()
+		{
+			string serverAnswer = GetServerCmdAnswer((BuilderData.builderID + ";" + BuilderData.geoLocation), "cmd", "SetBuilderGeoLocation");
+		}
+
+		public string GetBuilderGeoLocation()
+		{
+			string location = GetServerCmdAnswer(BuilderData.builderID.ToString(), "cmd", "GetBuilderGeoLocation");
+			return location;
+		}
+
 		public void SendSOSSignal()
 		{
 			SendToServer(BuilderData.builderID.ToString(),"sos");

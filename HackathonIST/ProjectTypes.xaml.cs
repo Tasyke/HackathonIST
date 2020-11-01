@@ -51,15 +51,20 @@ namespace HackathonIST
             //_buildings.Add(new Buildings { Name = "Galaxy S8", Adress = "Samsung"});
             UpdateBuildings();
         }
-    }
 
-    //public async void OnItemTapped(object sender, ItemTappedEventArgs e)
-    //{
-    //    Buildings selectedPhone = e.Item as Buildings;
-    //    if (selectedPhone != null)
-    //        await DisplayAlert("Выбранная модель", $"{selectedPhone.Name} - {selectedPhone.Adress}", "OK");
-    //}
-    public class Buildings
+		private void Button_Clicked_1(object sender, EventArgs e)
+		{
+            
+		}
+	}
+
+	//public async void OnItemTapped(object sender, ItemTappedEventArgs e)
+	//{
+	//    Buildings selectedPhone = e.Item as Buildings;
+	//    if (selectedPhone != null)
+	//        await DisplayAlert("Выбранная модель", $"{selectedPhone.Name} - {selectedPhone.Adress}", "OK");
+	//}
+	public class Buildings
     {
         public int BuildingsID { get; set; }
         public string Name { get; set; }

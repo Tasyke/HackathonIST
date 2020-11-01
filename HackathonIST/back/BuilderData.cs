@@ -7,5 +7,6 @@ namespace HackathonIST.back
 	public static class BuilderData
 	{
 		public static int builderID;
+		public static string geoLocation;
 	}
 }

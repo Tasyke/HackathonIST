@@ -35,7 +35,7 @@
         </ListView>
         <StackLayout>
             <Button Text="Обновить" Clicked="Button_Clicked"></Button>
-            <Button Text="Выбрать" 
+            <Button Text="Выбрать" Clicked="Button_Clicked_1"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand" />
         </StackLayout>
