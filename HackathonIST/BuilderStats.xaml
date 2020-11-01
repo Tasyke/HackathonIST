@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HackathonIST.BuilderStats"
-             Title="Стат.">
+             Title="Статистика">
+    <ScrollView>
     <StackLayout>
         <StackLayout.Resources>
             <Style TargetType="Label">
@@ -18,23 +19,34 @@
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
+            <Style TargetType="Editor">
+                <Setter Property="FontSize" Value="5" />
+                <Setter Property="Margin" Value="15,0, 20,0" />
+                <Setter Property="WidthRequest" Value="500" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
         </StackLayout.Resources>
 
 
-        <Image Source="" />
-        <Label Text="ФИО: Иванов Иван Иванович"
-               />
-        <Label Text="Стаж: 5 лет"
-               />
-        <Label Text="Образование: ПГС"
-               />
-        <Label Text="Фирма: IST Project"
-               />
-        <Label Text="Навыки:"
-               />
+        <Label Text="Фамилия: " />
+        <Editor Text="" />
+        <Label Text="Имя: " />
+        <Editor Text="" />
+        <Label Text="Отчество: " />
+        <Editor Text="" />
+        <Label Text="Телефон: " />
+        <Editor Text="" />
+        <Label Text="E-mail: " />
+        <Editor Text="" />
+        <Label Text="Работодатель: " />
+        <Editor Text="" />
+        <Label Text="Специальность: " />
+        <Editor Text="" />
 
-        <Button Text="Редактировать" 
+            <Button Text="Сохранить" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
     </StackLayout>
+    </ScrollView>
 </ContentPage>
