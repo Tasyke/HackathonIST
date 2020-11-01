@@ -26,6 +26,9 @@ namespace HackathonIST
             UpdateBuildings();
             this.BindingContext = this;
             BuildingsList.ItemsSource = _buildings;
+
+            constrTitle.Text = "Наименование стройки";
+            constrAddress.Text = "Адрес стройки";
         }
 
         private void UpdateBuildings()
@@ -62,7 +65,13 @@ namespace HackathonIST
             client.ConnectToServer();
             client.SetConstructionToBuilder();
             client.CloseConnection();
-		}
+            ConstructionData.isChoosen = true;
+            ConstructionData.constructionName = item.Name;
+            ConstructionData.constructionAddress = item.Adress;
+
+            constrTitle.Text = ConstructionData.constructionName;
+            constrAddress.Text = ConstructionData.constructionAddress;
+        }
 	}
 
 	//public async void OnItemTapped(object sender, ItemTappedEventArgs e)

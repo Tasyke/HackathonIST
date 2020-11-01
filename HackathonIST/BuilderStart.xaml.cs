@@ -41,6 +41,14 @@ namespace HackathonIST
 
         private void StartDay_Clicked(object sender, EventArgs e)
         {
+            if (!ConstructionData.isChoosen)
+			{
+                ErrorText.Text = "Сначала выберите стройку!";
+                ErrorText.IsVisible = true;
+                return;
+			}
+            
+            ErrorText.IsVisible = false;
             ButtonDS.IsVisible = false;
             ButtonED.IsVisible = true;
             SOSbutton.IsVisible = true;

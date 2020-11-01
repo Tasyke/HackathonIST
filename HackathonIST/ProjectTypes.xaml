@@ -17,6 +17,8 @@
             </Style>
         </StackLayout.Resources>
 
+        <Label x:Name="constrTitle" FontSize="Large" HorizontalTextAlignment="Center" Text="Наименование стройки"></Label>
+        <Label x:Name="constrAddress" FontSize="Large" HorizontalTextAlignment="Center" Text="Адрес стройки" Margin="0, 0, 0, 25"></Label>
         <ListView x:Name="BuildingsList"
               HasUnevenRows="True"
               ItemsSource="{Binding Buildings}">

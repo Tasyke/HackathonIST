@@ -20,6 +20,7 @@
                     <Setter Property="HorizontalOptions" Value="Center" />
                 </Style>
             </StackLayout.Resources>
+            <Label x:Name="ErrorText" Text="ERROR" IsVisible="false" TextColor="DarkRed"></Label>
             <Button x:Name="ButtonDS" Text="Начать рабочий день" Clicked="StartDay_Clicked"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
