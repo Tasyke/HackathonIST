@@ -43,7 +43,7 @@ namespace HackathonIST
         {
             if (!ConstructionData.isChoosen)
 			{
-                ErrorText.Text = "Сначала выберите стройку!";
+                ErrorText.Text = "Выберите стройку и попробуйте ещё раз!";
                 ErrorText.IsVisible = true;
                 return;
 			}
