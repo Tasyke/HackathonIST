@@ -10,7 +10,7 @@ namespace HackathonIST.back
     
     class WorkTimer
     {
-        BuilderStart Build = new BuilderStart();
+        //BuilderStart Build = new BuilderStart();
         Stopwatch stopwatch = new Stopwatch();
         string Time;
         public string ToogleStopwatch()

@@ -14,15 +14,16 @@ namespace HackathonIST
             //{
             //   // if (login == "a")
             //   // {
-            MainPage = new NavigationPage(new Authorization());
+            //MainPage = new NavigationPage(new Authorization());
+            MainPage = new SideTab();
             //   // }
-                
+
             //}
             //else
             //{
             //    MainPage = new NavigationPage(new Authorization());
             //}
-            
+
         }
 
         protected override void OnStart()

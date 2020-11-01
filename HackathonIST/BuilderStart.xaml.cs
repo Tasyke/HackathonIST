@@ -16,10 +16,15 @@ namespace HackathonIST
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BuilderStart : ContentPage
     {
-        WorkTimer Timer = new WorkTimer();
-        SOSButton SendSOS = new SOSButton();
-        AcceleratorFunc CheckAcceleration = new AcceleratorFunc();
+        //WorkTimer Timer = new WorkTimer();
+        // SOSButton SendSOS = new SOSButton();
+        // AcceleratorFunc CheckAcceleration = new AcceleratorFunc();
+        bool alive = true;
         CancellationTokenSource cts;
+
+        Stopwatch mStopWatch = new Stopwatch();
+
+
         public BuilderStart()
         {
             InitializeComponent();
@@ -27,7 +32,7 @@ namespace HackathonIST
 
         private void SOSButton_Clicked(object sender, EventArgs e)
         {
-            SendSOS.SOSCall();
+            //SendSOS.SOSCall();
         }
 
         private void StartDay_Clicked(object sender, EventArgs e)
@@ -38,9 +43,22 @@ namespace HackathonIST
             SOSbutton.IsVisible = true;
             OnWork.IsVisible = true;
             CheckGeolocation();
-            CheckAcceleration.ToggleAccelerator();
-            OnWork.Text=Timer.ToogleStopwatch();
-            
+            //CheckAcceleration.ToggleAccelerator();
+
+            //OnWork.Text=Timer.ToogleStopwatch();
+            if (!mStopWatch.IsRunning)
+            {
+                mStopWatch.Start();
+            }
+
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                // Do something
+
+                OnWork.Text = mStopWatch.Elapsed.ToString();
+
+                return true; // True = Repeat again, False = Stop the timer
+            });
         }
         private void EndDay_Clicked(object sender, EventArgs e)
         {
@@ -48,8 +66,10 @@ namespace HackathonIST
             ButtonED.IsVisible = false;
             SOSbutton.IsVisible = false;
             OnWork.IsVisible = false;
-            OnWork.Text = Timer.DisableStopwatch();
-            CheckAcceleration.DisableAccelerator();
+            alive = false;
+            //OnWork.Text = Timer.DisableStopwatch();
+
+            //CheckAcceleration.DisableAccelerator();
         }
         private async void Logout_OnClick(object sender, EventArgs e)
         {
@@ -58,6 +78,8 @@ namespace HackathonIST
 
             await Navigation.PopToRootAsync();
         }
+
+
 
         protected override void OnDisappearing()
         {
