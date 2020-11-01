@@ -23,7 +23,7 @@ def createDefaultTables():
     cursor.execute("CREATE TABLE construction (constructionID INTEGER PRIMARY KEY AUTOINCREMENT, geolocation VARCHAR(32), mainName VARCHAR(100), govContract VARCHAR(64), buildArea VARCHAR(24), customer VARCHAR(64), generalContractor VARCHAR(64), buildAllowment VARCHAR(64));");
     cursor.execute("CREATE TABLE builder (builderID INTEGER PRIMARY KEY AUTOINCREMENT, firstName VARCHAR(64), surName VARCHAR(64), lastName VARCHAR(64), phoneNumber VARCHAR(20), constructionID INTEGER, companyName VARCHAR(255), email VARCHAR(64), lastLocation VARCHAR(64), timestampID INTEGER);");
     cursor.execute("CREATE TABLE users (builderID INTEGER PRIMARY KEY AUTOINCREMENT, login VARCHAR(255), password VARCHAR(255))");
-    cursor.execute("CREATE TABLE timestamps (timestampID INTEGER PRIMARY KEY AUTOINCREMENT, timeStart TIME, timeEnd TIME, startWorkDate DATE, endWorkDate DATE, isDone INT, builderID INTEGER)");
+    cursor.execute("CREATE TABLE timestamps (timestampID INTEGER PRIMARY KEY AUTOINCREMENT, timeStart TIME, timeEnd TIME, startWorkDate DATE, endWorkDate DATE, isDone INT, builderID INTEGER, constructionID INTEGER)");
     cursor.execute("CREATE TABLE builderConstructions (builderID INTEGER, constructionID INTEGER)")
 
     conn.commit()
@@ -140,8 +140,13 @@ def startWork(workerID, dateTime):
         return "Work started!"
     else:
         closeConnection(conn)
-        # Либо создать новую, либо что-то придумать 
-        return "Work is already started!"
+        if timeStampData[5] == 1:
+            return "Work is done"
+        else:
+            return "Work is not done"
+
+import datetime
+print(startWork(1, datetime.datetime.now()))
 
 def endWork(workerID, dateTime):
     conn, cursor = connectToDatabase()
@@ -173,6 +178,15 @@ def getConstructionsByBuilder(builderID):
     else:
         return data
 
+def setConstructionToBuilder(body):
+    temp = body.split(';')
+
+    conn, cursor = connectToDatabase()
+    cursor.execute("UPDATE builder SET constructionID = (?) WHERE builderID = (?)", (temp[0], temp[1]))
+    conn.commit()
+    closeConnection(conn)
+    return "True"
+
 def getPersonalID(login):
     conn, cursor = connectToDatabase()
     cursor.execute("SELECT b.builderID FROM builder b JOIN users u ON u.builderID = b.builderID WHERE u.login = (?)", (login,))
@@ -183,6 +197,21 @@ def getPersonalID(login):
     else:
         return data
         
+def getBuilderInfoByID(builderID):
+    conn, cursor = connectToDatabase()
+    cursor.execute("SELECT * FROM builder WHERE builderID = (?)", (builderID,))
+    data = cursor.fetchone()
+    closeConnection(conn)
+
+    if not data:
+        return "None"
+    else:
+        request = ""
+        for x in data:
+            request += str(x) + ";"
+        request = request[:-1]
+        return request
+
 def setBuilderGeoLocation(builderID, location):
     conn, cursor = connectToDatabase()
 
@@ -212,3 +241,4 @@ def getBuilderGeoLocation(builderID):
         data = cursor.fetchone()[0]
         closeConnection(conn);
         return data
+

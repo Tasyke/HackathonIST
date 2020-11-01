@@ -26,7 +26,7 @@ def check_client_input(input):
         return SECRET_HANDSHAKE
     elif (header == "cmd"):
         return execute_cmd(request, body)
-    elif (header == "sos"):
+    elif (header == "SOS"):
         return SOSSignal()
     else:
         return "Unidentified Request :("
@@ -89,6 +89,14 @@ def execute_cmd(cmd, body):
         request = dbhandler.getBuilderGeoLocation(body)
         return request
 
+    elif (cmd == "GetBuilderInfo"):
+        request = dbhandler.getBuilderInfoByID(body)
+        return request
+
+    elif (cmd == "SetConstructionToBuilder"):
+        request = dbhandler.setConstructionToBuilder(body)
+        return request
+
     else:
         return "Not accepted command"
 
@@ -120,8 +128,8 @@ def handle_readables(readables, server):
                 print(f"[ERROR] Client disconnected")
 
             if data:
-                print(f"[SERVER] Get data from client: {str(data, encoding='utf-8')}")
-                result = check_client_input(str(data, encoding='utf-8'))
+                print(f"[SERVER] Get data from client: {data.decode(encoding='utf-8')}")
+                result = check_client_input(data.decode(encoding='utf-8'))
                 ANSWERS.update({resource: result})
                 if resource not in OUTPUTS:
                     OUTPUTS.append(resource)
