@@ -14,8 +14,8 @@ namespace HackathonIST
             //{
             //   // if (login == "a")
             //   // {
-            //MainPage = new NavigationPage(new Authorization());
-            MainPage = new SideTab();
+            MainPage = new NavigationPage(new Authorization());
+            //MainPage = new SideTab();
             //   // }
 
             //}
