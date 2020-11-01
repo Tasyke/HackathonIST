@@ -30,7 +30,7 @@
                 IsVisible="false"/>
             <Label Text="Вы на работе уже: 0:00" x:Name="OnWork"  IsVisible="false" />
             <Button Text="SOS" x:Name="SOSbutton" WidthRequest="90" HorizontalOptions="Center" HeightRequest="90" BackgroundColor="Red"
-BorderColor="Red" BorderRadius="45" Grid.Row="0" Grid.Column="0" IsVisible="false" />
+BorderColor="Red" BorderRadius="45" Grid.Row="0" Grid.Column="0" IsVisible="false"  Clicked="SOSButton_Clicked"/>
             <Button Text="Выйти" Clicked="Logout_OnClick"/>
         </StackLayout>
     </ScrollView>

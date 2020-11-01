@@ -4,29 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Diagnostics;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using HackathonIST.back;
 
 namespace HackathonIST
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BuilderStart : ContentPage
     {
+        WorkTimer Timer = new WorkTimer();
+        SOSButton SendSOS = new SOSButton();
+        AcceleratorFunc CheckAcceleration = new AcceleratorFunc();
         CancellationTokenSource cts;
         public BuilderStart()
         {
             InitializeComponent();
         }
 
+        private void SOSButton_Clicked(object sender, EventArgs e)
+        {
+            SendSOS.SOSCall();
+        }
+
         private void StartDay_Clicked(object sender, EventArgs e)
         {
+            
             ButtonDS.IsVisible = false;
             ButtonED.IsVisible = true;
             SOSbutton.IsVisible = true;
             OnWork.IsVisible = true;
             CheckGeolocation();
+            CheckAcceleration.ToggleAccelerator();
+            OnWork.Text=Timer.ToogleStopwatch();
+            
         }
         private void EndDay_Clicked(object sender, EventArgs e)
         {
@@ -34,6 +48,8 @@ namespace HackathonIST
             ButtonED.IsVisible = false;
             SOSbutton.IsVisible = false;
             OnWork.IsVisible = false;
+            OnWork.Text = Timer.DisableStopwatch();
+            CheckAcceleration.DisableAccelerator();
         }
         private async void Logout_OnClick(object sender, EventArgs e)
         {

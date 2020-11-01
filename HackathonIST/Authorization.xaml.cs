@@ -59,7 +59,7 @@ namespace HackathonIST
             {
                 client = new NetworkClient();
                 client.ConnectToServer();
-                BuilderData.builderID = client.GetPersonalID(login);
+               // BuilderData.builderID = client.GetPersonalID(login);
                 client.CloseConnection();
                 Application.Current.MainPage = new SideTab();
                 await Navigation.PopToRootAsync(true);
